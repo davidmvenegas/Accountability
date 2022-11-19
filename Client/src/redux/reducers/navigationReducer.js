@@ -9,6 +9,21 @@ export default (state = initialState, action) => {
                 ...state,
                 location: 'HOME_SCREEN',
             };
+        case 'YOUR_TASKS_SCREEN':
+            return {
+                ...state,
+                location: 'YOUR_TASKS_SCREEN',
+            };
+        case 'PARTNER_TASKS_SCREEN':
+            return {
+                ...state,
+                location: 'PARTNER_TASKS_SCREEN',
+            };
+        case 'PARTNER_SCREEN':
+            return {
+                ...state,
+                location: 'PARTNER_SCREEN',
+            };
         case 'SETTINGS_SCREEN':
             return {
                 ...state,
