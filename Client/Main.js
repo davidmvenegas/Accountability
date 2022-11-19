@@ -27,9 +27,8 @@ const Tab = createBottomTabNavigator();
 const AuthStack = createNativeStackNavigator();
 
 export default function Main() {
-    // const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
-    const isLoggedIn = true;
-
+    const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
+   
     const userData = useSelector((store) => store.user);
     console.log(userData)
 
