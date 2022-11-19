@@ -1,0 +1,1 @@
+export declare class GoogleAuthProvider extends BaseOAuthProvider 
