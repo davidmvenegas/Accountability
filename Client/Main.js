@@ -23,10 +23,10 @@ const Tab = createBottomTabNavigator();
 const AuthStack = createNativeStackNavigator();
 
 export default function Main() {
-    const isLoggedIn = useSelector((store) => store.user.userId !== null);
+    const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
 
-    const userId = useSelector((store) => store.user.userId);
-    console.log(userId)
+    const userData = useSelector((store) => store.user);
+    console.log(userData)
 
     return (
         <NavigationContainer>

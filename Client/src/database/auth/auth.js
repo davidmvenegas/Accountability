@@ -4,14 +4,16 @@ import {login, logout} from './../../redux/actions/userActions';
 import { auth } from '../config'
 
 // Create User
-const dispatch = useDispatch();
 
-const registerWithEmail = (email, password) => {
+const registerWithEmail = (dispatch, username, email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // console.log(userCredential.user.uid);
             const user = userCredential.user;
-            // dispatch(login({ userId: user.uid }));
+            dispatch(login({
+                userId: user.uid,
+                email: user.email,
+                username: username,
+            }));
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -55,4 +57,4 @@ const registerWithEmail = (email, password) => {
 
 // })
 
-export { registerWithEmail, signInWithEmailAndPassword, signOut }
+export { registerWithEmail }
