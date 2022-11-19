@@ -1,8 +1,9 @@
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { home } from '../redux/actions/navigationAction';
+import { home, your_tasks, partner_tasks, partner } from '../redux/actions/navigationAction';
 import { useDispatch, useSelector } from 'react-redux';
 import IIcon from 'react-native-vector-icons/Ionicons';
-import EIcon from 'react-native-vector-icons/Entypo';
+import EIcon from 'react-native-vector-icons/Feather';
+import FIcon from 'react-native-vector-icons/FontAwesome5'
 
 export default function NavigationComponent({ navigation }) {
     const dispatch = useDispatch();
@@ -14,15 +15,15 @@ export default function NavigationComponent({ navigation }) {
     }
     function handleYourTasksClick() {
         navigation.navigate('YourTasksScreen');
-        dispatch(home());
+        dispatch(your_tasks());
     }
     function handlePartnerTasksClick() {
         navigation.navigate('PartnerTasksScreen');
-        dispatch(home());
+        dispatch(partner_tasks());
     }
     function handlePartnerClick() {
         navigation.navigate('PartnerScreen');
-        dispatch(home());
+        dispatch(partner());
     }
 
     return (
@@ -32,13 +33,13 @@ export default function NavigationComponent({ navigation }) {
                     <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleYourTasksClick} style={location === 'YOUR_TASKS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <EIcon name="creative-commons-share" size={33} color={location === 'YOUR_TASKS_SCREEN' ? '#0099ff' : '#999'} />
+                    <FIcon name="tasks" size={33} color={location === 'YOUR_TASKS_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerTasksClick} style={location === 'PARTNER_TASKS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="home" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#0099ff' : '#999'} />
+                    <EIcon name="eye" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerClick} style={location === 'PARTNER_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="home" size={33} color={location === 'PARTNER_SCREEN' ? '#0099ff' : '#999'} />
+                    <FIcon name="user-friends" size={33} color={location === 'PARTNER_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
             </View>
         </View>
