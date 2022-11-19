@@ -5,12 +5,11 @@ import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } fro
 
 export default function RegisterScreen({ navigation }) {
     const dispatch = useDispatch();
-    //const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleRegister() {
-        if (username !== '' && email !== '' && password !== '') {
+        if (email !== '' && password !== '') {
             registerWithEmail(dispatch, email, password)
         }
         console.log('hi')
