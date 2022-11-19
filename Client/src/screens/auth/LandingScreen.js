@@ -1,15 +1,15 @@
 import { StyleSheet, SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
-import AutoHeightImage from 'react-native-auto-height-image';
-import Logo from '../../assets/MAIN_LOGO.png'
+// import AutoHeightImage from 'react-native-auto-height-image';
+// import Logo from '../../assets/MAIN_LOGO.png'
 
 export default function LandingScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logo_wrap}>
-                <AutoHeightImage
+                {/* <AutoHeightImage
                     width={300}
                     source={Logo}
-                />
+                /> */}
             </View>
             <View style={styles.description_wrap}>
                 <Text style={styles.description_text_1}>Welcome</Text>

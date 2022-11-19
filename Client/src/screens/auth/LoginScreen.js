@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from '../../redux/actions/userActions';
+import { auth } from '../../database/config';
+import { createUserWithEmailAndPassword } from '../../database/auth/auth'
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function LoginScreen({navigation}) {
-    const dispatch = useDispatch();
+export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleLogin() {
-        if (email !== '' && password !== '') {
-            dispatch(login({payload: 'TEST_USER_ID'}));
-        }
+        // if (email !== '' && password !== '') {
+        //     createUserWithEmailAndPassword(email, password)
+        // }
+        console.log('sdsd')
     }
 
     return (
@@ -50,11 +50,11 @@ export default function LoginScreen({navigation}) {
             </View>
             <View style={styles.account_wrap}>
                 <Text style={styles.account_text}>
-                    Don't have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('RegisterScreen')}>Register</Text> 
+                    Don't have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('RegisterScreen')}>Register</Text>
                 </Text>
             </View>
         </SafeAreaView>
-        );
+    );
 };
 
 const styles = StyleSheet.create({

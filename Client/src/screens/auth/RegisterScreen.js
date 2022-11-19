@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/actions/userActions';
+import { registerWithEmail } from '../../database/auth/auth'
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function RegisterScreen({ navigation }) {
@@ -11,8 +11,9 @@ export default function RegisterScreen({ navigation }) {
 
     function handleRegister() {
         if (username !== '' && email !== '' && password !== '') {
-            dispatch(login({ payload: {userId: 'TEST_USER_ID'}}));
+            registerWithEmail(email, password)
         }
+        console.log('hi')
     }
 
     return (

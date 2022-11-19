@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
         case 'USER_LOGIN':
             return {
                 ...state,
-                userId: action.payload,
+                userId: action.payload.userId,
             };
         case 'USER_LOGOUT':
             return {
