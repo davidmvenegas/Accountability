@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
 
 export default function LoginScreen() {
 
