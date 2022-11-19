@@ -1,11 +1,11 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
 
-export default function HomeScreen() {
+export default function PartnerTasksScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <Text style={styles.title_text}>Welcome to Home</Text>
+                <Text style={styles.title_text}>Welcome to Partner Tasks</Text>
             </ScrollView>
         </SafeAreaView>
     );
