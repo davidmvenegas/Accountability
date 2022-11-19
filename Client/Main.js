@@ -14,6 +14,9 @@ import RegisterScreen from './src/screens/auth/RegisterScreen';
 
 // Core screens
 import HomeScreen from './src/screens/core/HomeScreen';
+import YourTasksScreen from './src/screens/core/YourTasksScreen';
+import PartnerTasksScreen from './src/screens/core/PartnerTasksScreen';
+import PartnerScreen from './src/screens/core/PartnerScreen';
 
 // System screens
 import SettingsScreen from './src/screens/system/SettingsScreen';
@@ -23,10 +26,10 @@ const Tab = createBottomTabNavigator();
 const AuthStack = createNativeStackNavigator();
 
 export default function Main() {
-    const isLoggedIn = useSelector((store) => store.user.userId !== null);
+    const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
 
-    const userId = useSelector((store) => store.user.userId);
-    console.log(userId)
+    const userData = useSelector((store) => store.user);
+    console.log(userData)
 
     return (
         <NavigationContainer>
@@ -39,6 +42,9 @@ export default function Main() {
                     }}>
                     <Tab.Group>
                         <Tab.Screen name="HomeScreen" component={HomeScreen} />
+                        <Tab.Screen name="YourTasksScreen" component={YourTasksScreen} />
+                        <Tab.Screen name="PartnerTasksScreen" component={PartnerTasksScreen} />
+                        <Tab.Screen name="PartnerScreen" component={PartnerScreen} />
                         <Tab.Screen name="NotificationsScreen" component={NotificationsScreen} />
                         <Tab.Screen name="SettingsScreen" component={SettingsScreen} />
                     </Tab.Group>

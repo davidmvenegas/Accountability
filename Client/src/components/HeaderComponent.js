@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity, View, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifications, settings } from '../redux/actions/navigationAction';
-import AutoHeightImage from 'react-native-auto-height-image';
+// import AutoHeightImage from 'react-native-auto-height-image';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import Logo from '../assets/MAIN_LOGO.png'
 
@@ -25,10 +25,10 @@ export default function HeaderComponent() {
         <View style={styles.container}>
             <View style={styles.wrap}>
                 <View style={styles.logo_wrap}>
-                    <AutoHeightImage
+                    {/* <AutoHeightImage
                         width={190}
                         source={Logo}
-                    />
+                    /> */}
                 </View>
                 <View style={styles.image_wrap}>
                     <TouchableOpacity onPress={handleNotificationsClick}>
