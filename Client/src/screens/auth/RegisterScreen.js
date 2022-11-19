@@ -11,7 +11,7 @@ export default function RegisterScreen({ navigation }) {
 
     function handleRegister() {
         if (username !== '' && email !== '' && password !== '') {
-            registerWithEmail(email, password)
+            registerWithEmail(dispatch, username, email, password)
         }
         console.log('hi')
     }
