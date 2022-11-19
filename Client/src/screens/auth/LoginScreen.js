@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { auth } from '../../database/config';
+import { useDispatch } from 'react-redux';
+import { signInWithEmail } from '../../database/auth/auth';
 import { createUserWithEmailAndPassword } from '../../database/auth/auth'
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
 
     function handleLogin() {
-        // if (email !== '' && password !== '') {
-        //     createUserWithEmailAndPassword(email, password)
-        // }
-        console.log('sdsd')
+         if (email !== '' && password !== '') {
+            signInWithEmail(dispatch, email, password)
+         }
     }
 
     return (

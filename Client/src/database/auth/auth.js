@@ -5,14 +5,13 @@ import { auth } from '../config'
 
 // Create User
 
-const registerWithEmail = (dispatch, username, email, password) => {
+const registerWithEmail = (dispatch, email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             dispatch(login({
                 userId: user.uid,
                 email: user.email,
-                username: username,
             }));
     })
     .catch((error) => {
@@ -24,26 +23,31 @@ const registerWithEmail = (dispatch, username, email, password) => {
 
 // Sign in user
 
-// signInWithEmailAndPassword(auth, email, password).then ((userCredential) => {
-//     const userId = userCredential;
-//     // dispatch(login({ userId: userId }));
-// })
-// .catch((error) => {
-//     errorCode = error.code;
-//     errorMessage = error.message;
-//     console.log(errorCode + " " + errorMessage);
+ const signInWithEmail = (dispatch, email, password) => {
+    signInWithEmailAndPassword(auth, email, password).then ((userCredential) => {
+     const user = userCredential.user;
+     dispatch(login({   
+            userId: user.uid,
+            email: user.email,
+        }));
+ })
+ .catch((error) => {
+     errorCode = error.code;
+     errorMessage = error.message;
+     console.log(errorCode + " " + errorMessage);
 
-// });
+ })
+};
 
 // Sign out user
 
-// signOut(auth)
-//     .then(() => {
-//         // dispatch(logout());
-//         console.log("Successfully signed out")
-//     }).catch((error) => {
-//     console.log(error);
-// })
+ const onSignOut = (dispatch) => {signOut(auth)
+     .then(() => {
+         dispatch(logout());
+         console.log("Successfully signed out")
+     }).catch((error) => {
+     console.log(error);
+ })}
 
 
 // Google auth
@@ -57,4 +61,4 @@ const registerWithEmail = (dispatch, username, email, password) => {
 
 // })
 
-export { registerWithEmail }
+export { registerWithEmail, signInWithEmail, onSignOut }
