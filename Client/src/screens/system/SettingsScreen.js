@@ -1,13 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/actions/userActions';
 import { home } from '../../redux/actions/navigationAction';
+import { onSignOut } from '../../database/auth/auth';
 import { StyleSheet, SafeAreaView, Text, ScrollView, TouchableOpacity, Dimensions, View } from 'react-native';
 
 export default function SettingsScreen({ navigation }) {
     const dispatch = useDispatch();
 
     function handleLogout() {
-        dispatch(logout());
+        onSignOut(dispatch);
         dispatch(home());
     }
 

@@ -5,13 +5,13 @@ import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } fro
 
 export default function RegisterScreen({ navigation }) {
     const dispatch = useDispatch();
-    const [username, setUsername] = useState('');
+    //const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function handleRegister() {
         if (username !== '' && email !== '' && password !== '') {
-            registerWithEmail(dispatch, username, email, password)
+            registerWithEmail(dispatch, email, password)
         }
         console.log('hi')
     }
@@ -22,16 +22,6 @@ export default function RegisterScreen({ navigation }) {
                 <Text style={styles.title_text}>Register</Text>
             </View>
             <View style={styles.total_input_wrap}>
-                <View style={styles.input_wrap}>
-                    <Text style={styles.input_text}>Username*</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder='John Doe'
-                        placeholderTextColor={'#999'}
-                        value={username}
-                        onChangeText={(text) => setUsername(text)}
-                    />
-                </View>
                 <View style={styles.middle}></View>
                 <View style={styles.input_wrap}>
                     <Text style={styles.input_text}>Email Address*</Text>
