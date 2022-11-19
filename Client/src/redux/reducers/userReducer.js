@@ -1,7 +1,6 @@
 const initialState = {
     userId: null,
     email: null,
-    username: null,
     isLoggedIn: false,
 };
 
@@ -12,7 +11,6 @@ export default (state = initialState, action) => {
                 ...state,
                 userId: action.payload.userId,
                 email: action.payload.email,
-                username: action.payload.username,
                 isLoggedIn: true,
             };
         case 'USER_LOGOUT':
@@ -20,7 +18,6 @@ export default (state = initialState, action) => {
                 ...state,
                 userId: null,
                 email: null,
-                username: null,
                 isLoggedIn: false,
             };
         default:
