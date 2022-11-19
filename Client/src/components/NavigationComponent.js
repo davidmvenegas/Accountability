@@ -30,16 +30,16 @@ export default function NavigationComponent({ navigation }) {
         <View style={styles.container}>
             <View style={styles.wrap}>
                 <TouchableOpacity onPress={handleHomeClick} style={location === 'HOME_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#0099ff' : '#999'} />
+                    <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleYourTasksClick} style={location === 'YOUR_TASKS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <FIcon name="tasks" size={33} color={location === 'YOUR_TASKS_SCREEN' ? '#0099ff' : '#999'} />
+                    <FIcon name="tasks" size={33} color={location === 'YOUR_TASKS_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerTasksClick} style={location === 'PARTNER_TASKS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <EIcon name="eye" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#0099ff' : '#999'} />
+                    <EIcon name="eye" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerClick} style={location === 'PARTNER_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <FIcon name="user-friends" size={33} color={location === 'PARTNER_SCREEN' ? '#0099ff' : '#999'} />
+                    <FIcon name="user-friends" size={33} color={location === 'PARTNER_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: '#353e4f',
         paddingBottom: 45,
-        backgroundColor: "#000",
+        backgroundColor: "#0D1B2A",
     },
     wrap: {
         flex: 1,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         alignItems: 'center',
         justifyContent: 'flex-end',
-        borderColor: '#0099ff',
+        borderColor: '#E0E1DD',
         borderTopWidth: 4,
     },
 });

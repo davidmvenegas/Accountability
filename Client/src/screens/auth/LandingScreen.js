@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height: '100%',
         width: '100%',
-        backgroundColor: '#000',
+        backgroundColor: '#0D1B2A',
     },
     logo_wrap: {
         flex: 1.8,

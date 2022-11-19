@@ -14,7 +14,8 @@ import RegisterScreen from './src/screens/auth/RegisterScreen';
 
 // Core screens
 import HomeScreen from './src/screens/core/HomeScreen';
-import YourTasksScreen from './src/screens/core/YourTasksScreen';
+import YourTasksScreen from './src/screens/core/YourTasks/YourTasksScreen';
+import TaskScreen from './src/screens/core/YourTasks/Task';
 import PartnerTasksScreen from './src/screens/core/PartnerTasksScreen';
 import PartnerScreen from './src/screens/core/PartnerScreen';
 
@@ -27,7 +28,7 @@ const AuthStack = createNativeStackNavigator();
 
 export default function Main() {
     const isLoggedIn = useSelector((store) => store.user.isLoggedIn);
-    
+   
     const userData = useSelector((store) => store.user);
     console.log(userData)
 
@@ -43,6 +44,7 @@ export default function Main() {
                     <Tab.Group>
                         <Tab.Screen name="HomeScreen" component={HomeScreen} />
                         <Tab.Screen name="YourTasksScreen" component={YourTasksScreen} />
+                        <Tab.Screen name="TaskScreen" component={TaskScreen} />
                         <Tab.Screen name="PartnerTasksScreen" component={PartnerTasksScreen} />
                         <Tab.Screen name="PartnerScreen" component={PartnerScreen} />
                         <Tab.Screen name="NotificationsScreen" component={NotificationsScreen} />
