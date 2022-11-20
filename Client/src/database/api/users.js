@@ -26,11 +26,18 @@ export const queryUser = async(user) => {
 // Add or update supervisor
 
 export const createNewUser = async (user) => {
-    await setDoc(doc, 'users'),{
-        userId : user.userId,
-        supervisorId: '',
-        supervisor : '',
-        totalcompletion : 0
+    try {
+        await setDoc(doc, 'users'),{
+            userId : user.userId,
+            supervisorId: '',
+            username : '',
+            totalcompletion : 0
+        }
+        console.log("User added")
+        
+    } catch (error) {
+        console.log(error)
+        
     }
 
 }
