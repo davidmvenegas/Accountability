@@ -13,7 +13,7 @@ export default function LandingScreen({navigation}) {
             </View>
             <View style={styles.description_wrap}>
                 <Text style={styles.description_text_1}>Welcome</Text>
-                <Text style={styles.description_text_2}>End procrastination and get work done.</Text>
+                <Text style={styles.description_text_2}>Stay accountable and get work done.</Text>
             </View>
 
             <View style={styles.btn_wrap}>

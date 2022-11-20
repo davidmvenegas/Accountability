@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: '#353e4f',
         paddingBottom: 45,
-        backgroundColor: "#0D1B2A",
+        backgroundColor: "#111111",
     },
     wrap: {
         flex: 1,

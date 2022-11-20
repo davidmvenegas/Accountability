@@ -12,9 +12,9 @@ export default function TaskScreen({navigation}) {
                         </View>
                     </View>
                 </ScrollView>
-                <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('YourTasksScreen')}>
-                        <Text style={styles.add_btn_text}> Back </Text>
+                <View style={styles.back_btn_wrap}>
+                    <TouchableOpacity style={styles.back_btn} onPress={() => navigation.navigate('YourTasksScreen')}>
+                        <Text style={styles.back_btn_text}> Back </Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -27,7 +27,7 @@ const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0d1b2a",
+        backgroundColor: "#111111",
     },
     tasks_container: {
         flex: 1,
@@ -68,21 +68,21 @@ const styles = StyleSheet.create({
         marginLeft: 8,
     },
     // TASKS ADD BUTTON
-    add_btn_wrap: {
+    back_btn_wrap: {
         width: deviceWidth,
         alignItems: 'center',
     },
-    add_btn: {
+    back_btn: {
         width: 300,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: '#415A77',
+        backgroundColor: '#622D2F',
         padding: 12,
         margin: 20,
         borderRadius: 10,
     },
-    add_btn_text: {
+    back_btn_text: {
         color: '#E0E1DD',
         fontSize: 22,
         fontWeight: '500',
