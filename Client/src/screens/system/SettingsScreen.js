@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: "#0D1B2A",
+        backgroundColor: "#111111",
     },
     wrap: {
         alignItems: 'center',
