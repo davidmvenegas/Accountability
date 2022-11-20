@@ -8,9 +8,9 @@ import { queryUser } from '../../database/api/users';
 export default function HomeScreen() {
     const user = useSelector(store => store.user);
 
-    useEffect(() => {
+    /* useEffect(() => {
         queryUser(user).then((data) => console.log(data))
-    }, [])
+    }, []) */
 
     return (
         <SafeAreaView style={styles.container}>

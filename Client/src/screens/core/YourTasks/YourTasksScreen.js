@@ -1,9 +1,38 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
 import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { queryTasks } from '../../../database/api/tasklist';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
+import { doc } from 'firebase/firestore';
+
+
+
 
 export default function YourTasksScreen({navigation}) {
-    const tasks = ['task'];
+    const user = useSelector(store => store.user);
+    const [tasks, setTasks] = useState([])
+    useEffect( ()  => {
+       queryTasks(user).then((data) => {
+       data.forEach((doc) => {
+        setTasks([...tasks, doc.data()])
+            //console.log(tasks, " #######")
+        })}
+        //setTasks([results]) 
+        /* const results = queryTasks(user)
+        setTasks(results) */
+       
+      )}, [])
+
+      const finalarray = tasks.flatMap((element) => element)
+    
+    
+
+    console.log(finalarray, "THIS_IS_A_TEST")
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -19,7 +48,17 @@ export default function YourTasksScreen({navigation}) {
                     </View>
                     <ScrollView>
                         <View style={styles.tasks_wrap}>
-                            <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
+                            { tasks.map((task) => {
+                                {console.log(task)}
+                                 return (
+                                    <TouchableOpacity key = {uuidv4()}style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
+                                        <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
+                                        <Text style={styles.task_text}>{task.title}</Text>
+                                    </TouchableOpacity>
+                                )
+                            }
+                        )} 
+                            {/* <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                                 <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
                                 <Text style={styles.task_text}>Do Triginometry homework</Text>
                             </TouchableOpacity>
@@ -30,7 +69,7 @@ export default function YourTasksScreen({navigation}) {
                             <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                                 <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
                                 <Text style={styles.task_text}>Write English essay</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </ScrollView>
                     <View style={styles.add_btn_wrap}>
