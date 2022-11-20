@@ -89,7 +89,7 @@ const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0d1b2a",
+        backgroundColor: "#111111",
     },
     // NO TASKS
     no_tasks_wrap: {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         color: '#778DA9',
         fontSize: 30,
         fontWeight: '600',
-        marginTop: 20,
+        marginTop: 24,
     },
     // TASKS SETUP
     tasks_container: {
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         flexDirection: 'column',
+        marginTop: 2,
         padding: 14,
     },
     task_wrap: {
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     add_btn: {
-        width: 300,
+        width: '80%',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',

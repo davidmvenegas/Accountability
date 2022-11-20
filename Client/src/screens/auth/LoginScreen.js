@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        backgroundColor: "#0D1B2A",
+        backgroundColor: "#111111",
     },
     title_wrap: {
         flex: 1.2,
