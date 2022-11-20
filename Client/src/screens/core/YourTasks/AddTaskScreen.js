@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { newTasktoTasklist } from '../../../database/api/tasklist';
+import { useSelector } from 'react-redux';
 
 export default function TaskScreen({ navigation }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [deadline, setDeadline] = useState('');
+    const user = useSelector(store => store.user);
 
-    function handleCreateTask() {
-        console.log('Create task...')
+    function handleCreateTask()  {
+        newTasktoTasklist(title, description, deadline, user).then(console.log("Added user"))
         navigation.navigate('YourTasksScreen')
     }
 

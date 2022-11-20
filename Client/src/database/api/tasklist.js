@@ -10,11 +10,11 @@ export const queryTasks = async (user) => {
         //const q = query(collection(db, "taskList"));
         const querySnapshot = await getDocs(q);
 
-        const docs = querySnapshot.forEach((doc) => {
+        /*  const docs = querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
-        });
+        });  */
 
-        return docs;
+        return querySnapshot;
     } catch (error) {
         console.log(error)
     }
@@ -23,8 +23,8 @@ export const queryTasks = async (user) => {
 
 // Add task to tasklist
 
-/*  export const newTasktoTasklist = async (title, details, deadline, user) => {
-await setDoc(doc(db, "tasklist"),{
+ export const newTasktoTasklist = async (title, details, deadline, user) => {
+await setDoc(doc(db, "taskList", title),{
     title : title,
     userId : user.userId,
     deadline : deadline,
@@ -32,7 +32,7 @@ await setDoc(doc(db, "tasklist"),{
     date : Timestamp.now(),
     status : 'not completed'
 })
-}  */
+}  
 
 // delete task
 
