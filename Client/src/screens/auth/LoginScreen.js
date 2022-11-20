@@ -10,9 +10,9 @@ export default function LoginScreen({ navigation }) {
     const dispatch = useDispatch();
 
     function handleLogin() {
-         if (email !== '' && password !== '') {
+        if (email !== '' && password !== '') {
             signInWithEmail(dispatch, email, password)
-         }
+        }
     }
 
     return (
