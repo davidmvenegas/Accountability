@@ -2,11 +2,10 @@
 import { collection, query, where, getDocs, doc, setDoc,Timestamp, deleteDoc  } from "firebase/firestore";
 import { db } from "../config";
 
-
-// Query to get users task list
+// Query users task list
 export const queryTasks = async (user) => {
     try {
-         const q = query(collection(db, "taskList"), where("userId", "==", user.userId));
+        const q = query(collection(db, "taskList"), where("userId", "==", user.userId));
         //const q = query(collection(db, "taskList"));
         const querySnapshot = await getDocs(q);
 
@@ -20,18 +19,16 @@ export const queryTasks = async (user) => {
     }
 }
 
-
 // Add task to tasklist
-
- export const newTasktoTasklist = async (title, details, deadline, user) => {
-await setDoc(doc(db, "taskList", title),{
-    title : title,
-    userId : user.userId,
-    deadline : deadline,
-    details : details,
-    date : Timestamp.now(),
-    status : 'not completed'
-})
+export const newTasktoTasklist = async (title, details, deadline, user) => {
+    await setDoc(doc(db, "taskList", title),{
+        title : title,
+        userId : user.userId,
+        deadline : deadline,
+        details : details,
+        date : Timestamp.now(),
+        status : 'not completed'
+    })
 }  
 
 // delete task

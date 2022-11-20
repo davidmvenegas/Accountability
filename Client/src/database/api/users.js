@@ -1,9 +1,5 @@
- import { collection , doc, getDocs, query, setDoc, where} from "firebase/firestore";
- import { db } from "../config";
-
-
-
-
+import { collection , doc, getDocs, query, setDoc, where} from "firebase/firestore";
+import { db } from "../config";
 
 // Get supervisor
 
@@ -16,7 +12,7 @@ export const queryUser = async(user) => {
             console.log(doc.id, "=>", doc.data());
         });
         return docs;
-        
+
     } catch (error) {
         console.log(error)
         
@@ -39,24 +35,4 @@ export const createNewUser = async (user) => {
         console.log(error)
         
     }
-
 }
-/*
-//update supervisor
-
-export const updateUserSupervisor = async (supervisor) =>{
-    await setDoc(doc, 'user'),{
-        ...state, 
-        supervisor : supervisor
-    }
-}
-
-// Increment completion
-export const updateUserCompletion = async (completion) =>{
-    await setDoc(doc, 'user'),{
-        ...state, 
-        completion : user.completion
-    }
-}
-
- */
