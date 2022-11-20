@@ -1,18 +1,20 @@
 
-import { collection, query, where, doc, setDoc,Timestamp, deleteDoc  } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, setDoc,Timestamp, deleteDoc  } from "firebase/firestore";
 import { db } from "../config";
-
-//const tasklistRef = collection(db, 'taskList');
 
 
 // Query to get users task list
 export const queryTasks = async (user) => {
     try {
-        const tasklistRef =   collection(db, "taskList")
-        //console.log(tasklistRef)
-        const tasklist =   query(tasklistRef, where('userID', "==", user.userId));
-        //console.log(tasklist)
-        return tasklist;
+        // const q = query(collection(db, "taskList"), where("userID", "==", user.userId));
+        const q = query(collection(db, "taskList"));
+        const querySnapshot = await getDocs(q);
+
+        const docs = querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+        });
+
+        return docs;
     } catch (error) {
         console.log(error)
     }

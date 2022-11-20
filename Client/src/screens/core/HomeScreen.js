@@ -6,13 +6,9 @@ import { queryTasks } from '../../database/api/tasklist';
 
 export default function HomeScreen() {
     const user = useSelector(store => store.user);
-    const test = useEffect(() => {
-        const test2 = queryTasks(user);
-        test2.map((list) => {
-            console.log( " ###############")
-            console.log(list)
-        })
-       // console.log(test2)
+
+    useEffect(() => {
+        queryTasks(user).then((data) => console.log(data))
     }, [])
 
     return (
@@ -30,7 +26,7 @@ const styles = StyleSheet.create({
         height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#000",
+        backgroundColor: "#0D1B2A",
     },
     title_text: {
         marginTop: 250,

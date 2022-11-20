@@ -32,10 +32,10 @@ export default function HeaderComponent() {
                 </View>
                 <View style={styles.image_wrap}>
                     <TouchableOpacity onPress={handleNotificationsClick}>
-                        <IIcon style={styles.notification_image} name="ios-notifications" size={25} color={location === 'NOTIFICATIONS_SCREEN' ? '#0099ff' : '#fff'} />
+                        <IIcon style={styles.notification_image} name="ios-notifications" size={25} color={location === 'NOTIFICATIONS_SCREEN' ? '#E0E1DD' : '#fff'} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={handleProfileClick}>
-                        <IIcon style={styles.profile_image} name="settings-sharp" size={25} color={location === 'SETTINGS_SCREEN' ? '#0099ff' : '#fff'} />
+                        <IIcon style={styles.profile_image} name="settings-sharp" size={25} color={location === 'SETTINGS_SCREEN' ? '#E0E1DD' : '#fff'} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         borderColor: '#353e4f',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#000",
+        backgroundColor: "#0D1B2A",
         padding: 20,
         paddingTop: 68,
         marginLeft: -16,
