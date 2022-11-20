@@ -1,6 +1,16 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
 import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { queryTasks } from '../../../database/api/tasklist';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
+import { doc } from 'firebase/firestore';
+
+
+
 
 export default function YourTasksScreen({navigation}) {
     const tasks = ['ds'];
