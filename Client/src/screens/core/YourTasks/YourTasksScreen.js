@@ -1,19 +1,21 @@
+// import { useState, useEffect } from 'react';
+// import { useSelector } from 'react-redux';
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
+// import { queryTasks } from '../../../database/api/tasklist';
 import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { queryTasks } from '../../../database/api/tasklist';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
-import 'react-native-get-random-values';
-import {v4 as uuidv4} from 'uuid';
-import { doc } from 'firebase/firestore';
-
-
-
 
 export default function YourTasksScreen({navigation}) {
-    const tasks = ['ds'];
+    // const user = useSelector(store => store.user);
+    // const [tasks, setTasks] = useState([])
+
+    // useEffect(() => {
+    // console.log('hi there')
+    // async getMarker() {
+    //     const snapshot = await firebase.firestore().collection('events').get()
+    //     return snapshot.docs.map(doc => doc.data());
+    // }
+    // )}, [])
 
     return (
         <SafeAreaView style={styles.container}>
@@ -40,10 +42,17 @@ export default function YourTasksScreen({navigation}) {
                         <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                             <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
                             <Text style={styles.task_text}>Write English essay</Text>
+>>>>>>>>> Temporary merge branch 2
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
                 }
+                <View style={styles.add_btn_wrap}>
+                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
+                        <MCIcon name="playlist-add" size={32} style={{ color: '#E0E1DD'}} />
+                        <Text style={styles.add_btn_text}> Add Task </Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.add_btn_wrap}>
                     <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
                         <MCIcon name="playlist-add" size={32} style={{ color: '#E0E1DD'}} />
