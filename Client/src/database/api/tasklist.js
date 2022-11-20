@@ -3,19 +3,22 @@ import { collection, query, where, getDocs, doc, setDoc,Timestamp, deleteDoc  } 
 import { db } from "../config";
 
 // Query users task list
-export const queryTasks = async (user) => {
+export const getAllTasks = async () => {
     try {
-        const q = query(collection(db, "taskList"), where("userId", "==", user.userId));
-        //const q = query(collection(db, "taskList"));
+    } catch (e) {
+        console.error("Error adding document: ", e)
+    }
+}
+
+export const getCurrentUsersTasks = async (userId) => {
+    try {
+        const q = query(collection(db, "cities"), where("capital", "==", true));
         const querySnapshot = await getDocs(q);
-
-        /*  const docs = querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
-        });  */
-
-        return querySnapshot;
-    } catch (error) {
-        console.log(error)
+        });
+    } catch (e) {
+        console.error("Error adding document: ", e)
     }
 }
 
