@@ -15,7 +15,8 @@ import RegisterScreen from './src/screens/auth/RegisterScreen';
 // Core screens
 import HomeScreen from './src/screens/core/HomeScreen';
 import YourTasksScreen from './src/screens/core/YourTasks/YourTasksScreen';
-import TaskScreen from './src/screens/core/YourTasks/Task';
+import AddTaskScreen from './src/screens/core/YourTasks/AddTaskScreen';
+import TaskScreen from './src/screens/core/YourTasks/TaskScreen';
 import PartnerTasksScreen from './src/screens/core/PartnerTasksScreen';
 import PartnerScreen from './src/screens/core/PartnerScreen';
 
@@ -44,6 +45,7 @@ export default function Main() {
                     <Tab.Group>
                         <Tab.Screen name="HomeScreen" component={HomeScreen} />
                         <Tab.Screen name="YourTasksScreen" component={YourTasksScreen} />
+                        <Tab.Screen name="AddTaskScreen" component={AddTaskScreen} />
                         <Tab.Screen name="TaskScreen" component={TaskScreen} />
                         <Tab.Screen name="PartnerTasksScreen" component={PartnerTasksScreen} />
                         <Tab.Screen name="PartnerScreen" component={PartnerScreen} />
