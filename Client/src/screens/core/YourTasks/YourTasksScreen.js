@@ -1,21 +1,36 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
-// import { queryTasks } from '../../../database/api/tasklist';
+import { db } from '../../../database/config';
 import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function YourTasksScreen({navigation}) {
-    const tasks = ['d']
-    // const user = useSelector(store => store.user);
-    // const [tasks, setTasks] = useState([])
+    const tasks = ['task']
+    const user = useSelector(store => store.user);
+    const [testTasks, setTestTasks] = useState([])
 
-    // useEffect(() => {
-    // console.log('hi there')
-    // async getMarker() {
-    //     const snapshot = await firebase.firestore().collection('events').get()
-    //     return snapshot.docs.map(doc => doc.data());
-    // }
-    // )}, [])
+    useEffect(() => {
+        const tasksRef = collection(db, 'taskList')
+        const q = query(tasksRef, where('userId', '==', user.userId))
+
+        const unsub = onSnapshot(tasksRef, (query) => {
+            const items = []
+            query.forEach((doc) => {
+                items.push(doc.data())
+            })
+            setTestTasks(items)
+        })
+
+        return () => {
+            unsub()
+        }
+
+        // eslint-disable-next-line
+    }, [])
+
+    console.log(testTasks)
 
     return (
         <SafeAreaView style={styles.container}>
