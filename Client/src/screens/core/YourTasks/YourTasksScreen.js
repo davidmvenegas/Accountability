@@ -42,6 +42,7 @@ export default function YourTasksScreen({navigation}) {
                         <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                             <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
                             <Text style={styles.task_text}>Write English essay</Text>
+>>>>>>>>> Temporary merge branch 2
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
