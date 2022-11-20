@@ -1,5 +1,4 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
-import IIcon from 'react-native-vector-icons/Ionicons';
 
 export default function TaskScreen({navigation}) {
     return (
@@ -30,19 +29,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#0d1b2a",
     },
-    // NO TASKS
-    no_tasks_wrap: {
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
-    no_tasks_text: {
-        color: '#fff',
-        fontSize: 22,
-        fontWeight: '400',
-    },
-    // TASKS SETUP
     tasks_container: {
         flex: 1,
         height: '100%',
@@ -50,6 +36,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
     },
+    // TASK TITLE
+    task_title: {
+        color: '#fff',
+        fontSize: 32,
+        fontWeight: '400',
+        marginTop: 14,
+        marginLeft: 14,
+        marginBottom: 20,
+    },
+    // TASKS CONTENT
     tasks_wrap: {
         flex: 1,
         width: deviceWidth,
@@ -59,16 +55,6 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
     },
-    // TASKS TITLE
-    task_title: {
-        color: '#fff',
-        fontSize: 28,
-        fontWeight: '400',
-        marginTop: 12,
-        marginLeft: 10,
-        marginBottom: 20,
-    },
-    // TASKS CONTENT
     task_wrap: {
         alignItems: 'center',
         justifyContent: 'center',

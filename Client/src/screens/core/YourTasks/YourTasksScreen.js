@@ -1,5 +1,5 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
-import IIcon from 'react-native-vector-icons/Ionicons';
+import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function YourTasksScreen({navigation}) {
@@ -25,17 +25,17 @@ export default function YourTasksScreen({navigation}) {
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                                 <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
-                                <Text style={styles.task_text}>Do Triginometry homework</Text>
+                                <Text style={styles.task_text}>Respond to Emails</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                                 <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
-                                <Text style={styles.task_text}>Do Triginometry homework</Text>
+                                <Text style={styles.task_text}>Write English essay</Text>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
                     <View style={styles.add_btn_wrap}>
-                        <TouchableOpacity style={styles.add_btn}>
-                            <IIcon name="ios-add-circle" size={28} style={{ color: '#E0E1DD'}} />
+                        <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
+                            <MCIcon name="playlist-add" size={32} style={{ color: '#E0E1DD'}} />
                             <Text style={styles.add_btn_text}> Add Task </Text>
                         </TouchableOpacity>
                     </View>
@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
     },
     task_title: {
         color: '#778DA9',
-        fontSize: 26,
+        fontSize: 30,
         fontWeight: '600',
-        marginTop: 24,
+        marginTop: 20,
     },
     // TASKS SETUP
     tasks_container: {
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
     },
+    // TASKS CONTENT
     tasks_wrap: {
         flex: 1,
         width: deviceWidth,
@@ -92,20 +93,18 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 14,
     },
-    // TASKS CONTENT
     task_wrap: {
-        borderColor: '#fff',
-        borderWidth: 1,
+        width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         flexDirection: 'row',
-        marginBottom: 10,
+        marginBottom: 12,
     },
     task_text: {
         color: '#fff',
-        fontSize: 22,
+        fontSize: 24,
         fontWeight: '300',
-        marginLeft: 6,
+        marginLeft: 8,
     },
     // TASKS ADD BUTTON
     add_btn_wrap: {
