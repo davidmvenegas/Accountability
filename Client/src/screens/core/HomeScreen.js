@@ -2,13 +2,14 @@ import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { queryTasks } from '../../database/api/tasklist';
+import { queryUser } from '../../database/api/users';
 
 
 export default function HomeScreen() {
     const user = useSelector(store => store.user);
 
     useEffect(() => {
-        queryTasks(user).then((data) => console.log(data))
+        queryUser(user).then((data) => console.log(data))
     }, [])
 
     return (
