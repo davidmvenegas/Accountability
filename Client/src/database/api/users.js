@@ -1,25 +1,47 @@
-/* import { collection , doc, query, setDoc, where} from "firebase/firestore";
-import { useSelector } from "react-redux";
+ import { collection , doc, getDocs, query, setDoc, where} from "firebase/firestore";
+ import { db } from "../config";
 
-const userRef = collection(db, 'users');
-const user = useSelector(store => store.user);
+
+
 
 
 // Get supervisor
 
-export const userInfo = query(userRef, where('userId', "==", `${user.userId}`));
+export const queryUser = async(user) => {
+    try {
+        const q = query(collection(db, 'user'), where('userId', "==", user.userId))
+        const querySnapshot = await getDocs(q);
+
+        const docs = querySnapshot.forEach((doc) => {
+            console.log(doc.id, "=>", doc.data());
+        });
+        return docs;
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
 
 // Add or update supervisor
 
-export const createNewUser = async () => {
-    await setDoc(doc, 'users'),{
-        userId : user.userId,
-        supervisor : '',
-        totalcompletion : 0
+export const createNewUser = async (user) => {
+    try {
+        await setDoc(doc, 'users'),{
+            userId : user.userId,
+            supervisorId: '',
+            username : '',
+            totalcompletion : 0
+        }
+        console.log("User added")
+        
+    } catch (error) {
+        console.log(error)
+        
     }
 
 }
-
+/*
 //update supervisor
 
 export const updateUserSupervisor = async (supervisor) =>{

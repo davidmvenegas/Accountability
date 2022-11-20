@@ -1,5 +1,6 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
 
+
 export default function TaskScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
