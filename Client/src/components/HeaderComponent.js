@@ -1,11 +1,9 @@
-import { StyleSheet, TouchableOpacity, View, Dimensions } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Image, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifications, settings } from '../redux/actions/navigationAction';
-// import AutoHeightImage from 'react-native-auto-height-image';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import Logo from '../assets/MAIN_LOGO.png'
-
 
 export default function HeaderComponent() {
     const navigation = useNavigation();
@@ -25,17 +23,14 @@ export default function HeaderComponent() {
         <View style={styles.container}>
             <View style={styles.wrap}>
                 <View style={styles.logo_wrap}>
-                    {/* <AutoHeightImage
-                        width={190}
-                        source={Logo}
-                    /> */}
+                    <Image style={styles.logo} source={Logo} />
                 </View>
                 <View style={styles.image_wrap}>
                     <TouchableOpacity onPress={handleNotificationsClick}>
-                        <IIcon style={styles.notification_image} name="ios-notifications" size={25} color={location === 'NOTIFICATIONS_SCREEN' ? '#E0E1DD' : '#fff'} />
+                        <IIcon style={styles.notification_image} name="ios-notifications" size={28} color={location === 'NOTIFICATIONS_SCREEN' ? '#8B705D' : '#fff'} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={handleProfileClick}>
-                        <IIcon style={styles.profile_image} name="settings-sharp" size={25} color={location === 'SETTINGS_SCREEN' ? '#E0E1DD' : '#fff'} />
+                        <IIcon style={styles.profile_image} name="settings-sharp" size={28} color={location === 'SETTINGS_SCREEN' ? '#8B705D' : '#fff'} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -55,7 +50,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: "#111111",
         padding: 20,
-        paddingTop: 68,
+        paddingTop: 66,
         marginLeft: -16,
         marginTop: -46,
     },
@@ -71,18 +66,22 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },
+    logo: {
+        width: 190,
+        height: 20,
+    },
     image_wrap: {
         alignItems: 'center',
         justifyContent: 'flex-end',
         flexDirection: 'row',
     },
     notification_image: {
-        height: 25,
+        height: 28,
         width: 25,
         marginRight: 22,
     },
     profile_image: {
-        height: 25,
-        width: 25,
+        height: 28,
+        width: 28,
     },
 });

@@ -2,7 +2,6 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { home, your_tasks, partner_tasks, partner } from '../redux/actions/navigationAction';
 import { useDispatch, useSelector } from 'react-redux';
 import IIcon from 'react-native-vector-icons/Ionicons';
-import EIcon from 'react-native-vector-icons/Feather';
 import FIcon from 'react-native-vector-icons/FontAwesome5'
 
 export default function NavigationComponent({ navigation }) {
@@ -36,10 +35,10 @@ export default function NavigationComponent({ navigation }) {
                     <FIcon name="tasks" size={33} color={location === 'YOUR_TASKS_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerTasksClick} style={location === 'PARTNER_TASKS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <EIcon name="eye" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#E0E1DD' : '#999'} />
+                    <FIcon name="user-friends" size={33} color={location === 'PARTNER_TASKS_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePartnerClick} style={location === 'PARTNER_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <FIcon name="user-friends" size={33} color={location === 'PARTNER_SCREEN' ? '#E0E1DD' : '#999'} />
+                    <FIcon name="search" size={33} color={location === 'PARTNER_SCREEN' ? '#E0E1DD' : '#999'} />
                 </TouchableOpacity>
             </View>
         </View>

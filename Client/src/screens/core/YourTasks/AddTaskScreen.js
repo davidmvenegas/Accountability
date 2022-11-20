@@ -68,7 +68,7 @@ export default function TaskScreen({ navigation }) {
                 <View>
                     <View style={styles.create_btn_wrap}>
                         <TouchableOpacity style={styles.create_btn} onPress={() => handleCreateTask()}>
-                            <MIcon name="create" size={28} style={{ color: '#E0E1DD' }} />
+                            <MIcon name="create" size={32} style={{ color: '#E0E1DD' }} />
                             <Text style={styles.create_btn_text}> Create </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.cancel_btn} onPress={() => navigation.navigate('YourTasksScreen')}>
@@ -191,16 +191,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: '#415A77',
+        backgroundColor: '#4C3527',
         padding: 16,
         marginBottom: 12,
-        borderColor: '#415A77',
-        borderWidth: 2,
         borderRadius: 8,
     },
     create_btn_text: {
         color: '#E0E1DD',
-        fontSize: 24,
+        fontSize: 27,
         fontWeight: '600',
         textAlign: 'center',
     },
@@ -209,9 +207,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: '#622D2F',
+        backgroundColor: '#8B705D',
         padding: 14,
-        marginBottom: 20,
+        marginBottom: 28,
         borderRadius: 8,
     },
     cancel_btn_text: {

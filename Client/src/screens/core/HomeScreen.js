@@ -1,37 +1,39 @@
-import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { queryTasks } from '../../database/api/tasklist';
-import { queryUser } from '../../database/api/users';
+import { StyleSheet, SafeAreaView, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import { your_tasks, partner_tasks, partner } from '../../redux/actions/navigationAction';
+import { useDispatch } from 'react-redux';
 
+export default function HomeScreen({navigation}) {
+    const dispatch = useDispatch();
 
-export default function HomeScreen() {
-    const user = useSelector(store => store.user);
-
-    /* useEffect(() => {
-        queryUser(user).then((data) => console.log(data))
-    }, []) */
+    function handleYourTasksClick() {
+        navigation.navigate('YourTasksScreen');
+        dispatch(your_tasks());
+    }
+    function handlePartnerTasksClick() {
+        navigation.navigate('PartnerTasksScreen');
+        dispatch(partner_tasks());
+    }
+    function handlePartnerClick() {
+        navigation.navigate('PartnerScreen');
+        dispatch(partner());
+    }
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <Text style={styles.title_text}>Welcome to Home</Text>
-                <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
-                        <Text style={styles.add_btn_text}> Read First Article </Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
-                        <Text style={styles.add_btn_text}> Read Second Article </Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
-                        <Text style={styles.add_btn_text}> Read Third Article </Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
+            <View style={styles.title_wrap}>
+                <Text style={styles.title_text}>Quick Actions</Text>
+            </View>
+            <View style={styles.btns_wrap}>
+                <TouchableOpacity style={styles.btn} onPress={() => handleYourTasksClick()}>
+                    <Text style={styles.btn_text}> Your Tasks </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={() => handlePartnerTasksClick()}>
+                    <Text style={styles.btn_text}> Partner Tasks </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={() => handlePartnerClick()}>
+                    <Text style={styles.btn_text}> Go to Partner </Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 };
@@ -42,37 +44,43 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        backgroundColor: "#111",
+    },
+    title_wrap: {
+        width: deviceWidth,
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: "#111111",
+        marginTop: 20,
+        marginBottom: 20,
     },
     title_text: {
+        width: '90%',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 50,
         color: '#fff',
-        fontSize: 22,
-        fontWeight: '400',
+        fontSize: 28,
+        fontWeight: '600',
     },
-    // TASKS ADD BUTTON
-    add_btn_wrap: {
+    // BUTTONS
+    btns_wrap: {
         width: deviceWidth,
         alignItems: 'center',
     },
-    add_btn: {
-        width: '80%',
+    btn: {
+        width: '90%',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: '#415A77',
-        padding: 10,
-        margin: 20,
+        backgroundColor: '#333435',
+        padding: 28,
+        marginBottom: 20,
         borderRadius: 10,
     },
-    add_btn_text: {
+    btn_text: {
         color: '#E0E1DD',
-        fontSize: 20,
-        fontWeight: '500',
+        fontSize: 24,
+        fontWeight: '600',
         textAlign: 'center',
         marginLeft: 2,
     },

@@ -1,11 +1,11 @@
 // import { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import { StyleSheet, SafeAreaView, Text, ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
 // import { queryTasks } from '../../../database/api/tasklist';
 import MCIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function YourTasksScreen({navigation}) {
+    const tasks = ['d']
     // const user = useSelector(store => store.user);
     // const [tasks, setTasks] = useState([])
 
@@ -42,20 +42,13 @@ export default function YourTasksScreen({navigation}) {
                         <TouchableOpacity style={styles.task_wrap} onPress={() => navigation.navigate('TaskScreen')}>
                             <MIcon name="checkbox-blank-outline" size={28} style={{ color: '#fff'}} />
                             <Text style={styles.task_text}>Write English essay</Text>
->>>>>>>>> Temporary merge branch 2
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
                 }
                 <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
-                        <MCIcon name="playlist-add" size={32} style={{ color: '#E0E1DD'}} />
-                        <Text style={styles.add_btn_text}> Add Task </Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.add_btn_wrap}>
-                    <TouchableOpacity style={styles.add_btn} onPress={() => navigation.navigate('AddTaskScreen')}>
-                        <MCIcon name="playlist-add" size={32} style={{ color: '#E0E1DD'}} />
+                    <TouchableOpacity onPress={() => navigation.navigate('AddTaskScreen')} style={tasks.length > 0 ? styles.add_btn : styles.add_btn_none}>
+                        <MCIcon name="playlist-add" size={40} style={{ color: '#E0E1DD'}} />
                         <Text style={styles.add_btn_text}> Add Task </Text>
                     </TouchableOpacity>
                 </View>
@@ -69,7 +62,7 @@ const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#111111",
+        backgroundColor: "#111",
     },
     // NO TASKS
     no_tasks_wrap: {
@@ -91,10 +84,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     task_title: {
-        color: '#fff',
-        fontSize: 30,
-        fontWeight: '600',
-        marginTop: 22,
+        color: '#999',
+        fontSize: 32,
+        fontWeight: '700',
+        marginTop: 28,
     },
     // TASKS SETUP
     tasks_container: {
@@ -111,15 +104,15 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         flexDirection: 'column',
-        marginTop: 2,
-        padding: 14,
+        marginTop: 8,
+        padding: 12,
     },
     task_wrap: {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'flex-start',
         flexDirection: 'row',
-        marginBottom: 12,
+        marginBottom: 14,
     },
     task_text: {
         color: '#fff',
@@ -133,18 +126,28 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     add_btn: {
-        width: '80%',
+        width: '85%',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        backgroundColor: '#415A77',
-        padding: 10,
-        margin: 20,
-        borderRadius: 10,
+        backgroundColor: '#4C3527',
+        padding: 12,
+        marginBottom: 28,
+        borderRadius: 8,
+    },
+    add_btn_none: {
+        width: '85%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        backgroundColor: '#4C3527',
+        padding: 12,
+        marginBottom: 12,
+        borderRadius: 8,
     },
     add_btn_text: {
         color: '#E0E1DD',
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: '500',
         textAlign: 'center',
         marginLeft: 2,

@@ -21,7 +21,6 @@ export default function RegisterScreen({ navigation }) {
                 <Text style={styles.title_text}>Register</Text>
             </View>
             <View style={styles.total_input_wrap}>
-                <View style={styles.middle}></View>
                 <View style={styles.input_wrap}>
                     <Text style={styles.input_text}>Email Address*</Text>
                     <TextInput
@@ -68,11 +67,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#111111",
     },
     title_wrap: {
-        flex: 1.4,
+        flex: 1.2,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 25,
-        marginBottom: 5,
     },
     title_text: {
         color: 'white',
@@ -80,7 +78,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
     },
     total_input_wrap: {
-        flex: 2.65,
+        flex: 1.2,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -93,7 +91,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         margin: 10,
-        marginBottom: 15,
     },
     input_text: {
         color: '#DDD',
@@ -113,13 +110,13 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     btn_wrap: {
-        flex: 1.2,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     btn: {
         width: 300,
-        backgroundColor: '#802d2d',
+        backgroundColor: '#4C3527',
         padding: 15,
         margin: 10,
         borderRadius: 10,
